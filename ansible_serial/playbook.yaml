@@ -1,0 +1,16 @@
+---
+- name: Demonstrate serial
+  hosts: centos
+  serial: 2
+  max_fail_percentage: 50 #abort only when more than 1 node fail
+  tasks:
+    - name: download file
+      ansible.builtin.get_url:
+        url: "{{ file_path }}"
+        dest: /home/student
+        owner: student
+        group: student
+    - name: print a statement
+      ansible.builtin.debug:
+        msg: "Welcome to this task"
+        

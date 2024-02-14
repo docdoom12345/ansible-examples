@@ -1,0 +1,17 @@
+---
+- name: Create folders in centos group
+  hosts: centos
+  serial: 1
+  tasks:
+    - name: Create a folder
+      ansible.builtin.file:
+        path: /home/student/{{ folder_name }}
+        state: directory
+
+- name: Create a file in testing folder
+  hosts: centos
+  tasks:
+    - name: Create a file
+      ansible.builtin.file:
+        path: /home/student/{{ folder_name }}/{{ file_name }}
+        state: touch
