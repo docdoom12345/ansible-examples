@@ -1,0 +1,7 @@
+version: 1
+
+build_arg_defaults: 
+  EE_BASE_IMAGE: ghcr.io/ansible/creator-ee:v0.21.0
+  EE_BUILDER_IMAGE: quay.io/ansible/ansible-runner:latest
+dependencies: 
+  galaxy: requirements.yml
