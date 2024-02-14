@@ -1,0 +1,4 @@
+---
+# vars file for roles/web
+web_package: httpd
+web_service: httpd

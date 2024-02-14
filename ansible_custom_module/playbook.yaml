@@ -1,0 +1,14 @@
+- name: test my new module
+  hosts: localhost
+  tasks:
+  #- name: calling ansible.builtin.ping
+  #  ansible.builtin.ping:
+
+  - name: run the new module custom module
+    ping:
+      name: 'testing custom module'
+      new: true
+    register: testout
+  - name: dump test output
+    debug:
+      msg: '{{ testout }}'
