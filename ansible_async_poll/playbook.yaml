@@ -1,0 +1,16 @@
+---
+
+- hosts: centos
+  tasks:
+
+  - name: Simulate long running op, allow to run for 45 sec, fire and forget
+    ansible.builtin.shell: sleep 30
+    changed_when: false
+    async: 20
+    poll: 0 #concurrent task execution
+  - name: print a statement
+    ansible.builtin.debug:
+      msg: "Welcome"
+  - name: print second statement
+    ansible.builtin.debug:
+      msg: "Welcome again"
